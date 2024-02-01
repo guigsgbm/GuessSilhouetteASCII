@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Nodes;
-using System.Threading.Tasks;
-
-namespace Domain;
+﻿namespace Domain;
 
 public class Character
 {
-    public int Id { get; }
+    public int Id { get; set; }
 
     public string Name 
     {
@@ -36,14 +28,25 @@ public class Character
     {
         Dragon_Ball,
         Naruto,
-        One_Piece
+        One_Piece,
+        Scooby_Doo,
+        Simpsons,
+        Phineas_and_Ferb
     };
 
-    public Character(string name, string description, enumCategory category)
+    private string _silhouetteJson;
+    public string SilhouetteJson
+    {
+        get { return _silhouetteJson; }
+        set { _silhouetteJson = value; }
+    }
+     
+    public Character(string name, string description, enumCategory category, string silhouetteJson)
     {
         Name = name;
         Description = description;
         Category = category;
+        SilhouetteJson = silhouetteJson;
     }
 
 }
